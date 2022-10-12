@@ -1,6 +1,7 @@
 /* Whole Area styling */
 .input-area {
   background-color: var(--background-input);
+  overflow-y: scroll;
 }
 
 /*Vertical Flow Flex sections*/

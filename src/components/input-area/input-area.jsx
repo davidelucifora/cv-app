@@ -59,8 +59,8 @@ export default function inputArea(props) {
           <InputField
             type="text"
             name="linkedin"
-            label="LinkedIN"
-            placeholder="/in/johnsmith"
+            label="LinkedIn Username"
+            placeholder="e.g. johnsmith"
             handleOnChange={handleOnChange}
           />
           <InputField
@@ -78,7 +78,7 @@ export default function inputArea(props) {
           name="shortBio"
           label="Something about yourself"
           placeholder="E.g. After graduating I took 2 years off travelling and teaching myself coding and data science and started my journey before working at company X, where I quickly got promoted..."
-          handleOnChange={handleOnChange}
+          onChange={handleOnChange}
         ></textarea>
       </div>
     </div>
