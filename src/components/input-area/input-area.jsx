@@ -1,7 +1,15 @@
 import React from "react";
 import InputField from "./input-field";
 import "./input-area.css";
-export default function inputArea() {
+export default function inputArea(props) {
+  function handleOnChange(e) {
+    const { name, value } = e.target;
+    props.updateState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+
   return (
     <div className="input-area">
       <div className="contact-info">
@@ -12,12 +20,14 @@ export default function inputArea() {
             name="fullName"
             label="Full Name"
             placeholder="e.g. John Smith..."
+            handleOnChange={handleOnChange}
           />
           <InputField
             type="text"
             name="jobTitle"
             label="Job Title"
             placeholder="e.g. Astronaut..."
+            handleOnChange={handleOnChange}
           />
         </div>
         <InputField
@@ -25,6 +35,7 @@ export default function inputArea() {
           name="emailAddress"
           label="Your email"
           placeholder="johnsmith@protonmail.com..."
+          handleOnChange={handleOnChange}
         />
 
         <div className="form-group-row">
@@ -33,12 +44,14 @@ export default function inputArea() {
             name="phoneNumber"
             label="Phone Number"
             placeholder="e.g. +44 7000000..."
+            handleOnChange={handleOnChange}
           />
           <InputField
             type="text"
             name="location"
             label="Location"
             placeholder="e.g. London, Remote..."
+            handleOnChange={handleOnChange}
           />
         </div>
 
@@ -48,12 +61,14 @@ export default function inputArea() {
             name="linkedin"
             label="LinkedIN"
             placeholder="/in/johnsmith"
+            handleOnChange={handleOnChange}
           />
           <InputField
             type="text"
             name="website"
             label="Website"
             placeholder="e.g. www.johnsmith.com..."
+            handleOnChange={handleOnChange}
           />
         </div>
       </div>
@@ -63,6 +78,7 @@ export default function inputArea() {
           name="shortBio"
           label="Something about yourself"
           placeholder="E.g. After graduating I took 2 years off travelling and teaching myself coding and data science and started my journey before working at company X, where I quickly got promoted..."
+          handleOnChange={handleOnChange}
         ></textarea>
       </div>
     </div>

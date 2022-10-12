@@ -2,13 +2,15 @@ import { useState } from "react";
 import helpers from "./components/helpers";
 import "./App.css";
 import InputArea from "./components/input-area/input-area";
-import PreviewArea from "./components/preview/preview";
+import Preview from "./components/preview/preview";
 
 function App() {
+  const [data, setData] = useState({});
+
   return (
     <div className="App">
-      <InputArea />
-      <PreviewArea />
+      <InputArea updateState={setData} />
+      <Preview data={data} />
     </div>
   );
 }

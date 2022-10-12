@@ -12,6 +12,7 @@ export default function InputField(props) {
         className="text-input"
         placeholder={props.placeholder}
         defaultValue=""
+        onChange={(e) => props.handleOnChange(e)}
       ></input>
     </div>
   );
