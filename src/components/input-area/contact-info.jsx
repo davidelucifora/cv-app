@@ -5,7 +5,10 @@ export default function ContactInfo(props) {
     const { name, value } = e.target;
     props.updateState((prevState) => ({
       ...prevState,
-      [name]: value,
+      contactInfo: {
+        ...prevState.contactInfo,
+        [name]: value,
+      },
     }));
   }
   return (

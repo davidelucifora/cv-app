@@ -6,17 +6,17 @@ function Header({ data }) {
   return (
     <div className="cv-box-header">
       <div className="cv-box-name-title">
-        <h4>{data.fullName}</h4>
-        <p>{data.jobTitle}</p>
+        <h4>{data.contactInfo.fullName}</h4>
+        <p>{data.contactInfo.jobTitle}</p>
       </div>
       <div className="cv-box-contact-info">
-        <p className="contact-info-lines">{data.phoneNumber}</p>
-        <p className="contact-info-lines">{data.emailAddress}</p>
-        <p className="contact-info-lines">{data.location}</p>
+        <p className="contact-info-lines">{data.contactInfo.phoneNumber}</p>
+        <p className="contact-info-lines">{data.contactInfo.emailAddress}</p>
+        <p className="contact-info-lines">{data.contactInfo.location}</p>
         <p className="contact-info-lines">
-          {data.linkedin && "/in/" + data.linkedin}
+          {data.linkedin && "/in/" + data.contactInfo.linkedin}
         </p>
-        <p className="contact-info-lines">{data.website}</p>
+        <p className="contact-info-lines">{data.contactInfo.website}</p>
       </div>
     </div>
   );

@@ -5,7 +5,10 @@ import InputArea from "./components/input-area/input-area";
 import Preview from "./components/preview/preview";
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    contactInfo: "",
+    shortBio: "",
+  });
 
   return (
     <div className="App">
