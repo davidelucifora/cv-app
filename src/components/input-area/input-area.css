@@ -68,3 +68,42 @@ textarea::placeholder {
   font-size: 0.8rem;
   opacity: 0.6;
 }
+/* Add Skills Section */
+.input-skills {
+  display: flex;
+  flex-flow: column;
+  /* padding: 1.2rem;  */
+  border-radius: 10px;
+  /* align-items: center; */
+  /* border: 1px solid red; */
+}
+
+#add-skill-btn {
+  margin: 1rem 0;
+}
+
+button.btn.secondary-btn {
+  background-color: #f3f3f3;
+  border: 1px solid var(--primary-orange);
+  color: var(--primary-orange);
+  transition: all 0.2s linear;
+}
+button.btn.secondary-btn:hover {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.del-btn {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 1.6rem;
+  background: rgb(255, 192, 192);
+  border: 1px solid coral;
+  color: darkred;
+}
+/* 
+.hide {
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s linear;
+} */

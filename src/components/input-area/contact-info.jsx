@@ -48,9 +48,9 @@ export default function ContactInfo(props) {
         />
         <InputField
           type="text"
-          name="location"
-          label="Location"
-          placeholder="e.g. London, Remote..."
+          name="linkedin"
+          label="LinkedIn Username"
+          placeholder="e.g. johnsmith"
           handleOnChange={handleOnChange}
         />
       </div>
@@ -58,16 +58,16 @@ export default function ContactInfo(props) {
       <div className="form-group-row">
         <InputField
           type="text"
-          name="linkedin"
-          label="LinkedIn Username"
-          placeholder="e.g. johnsmith"
+          name="website"
+          label="Website"
+          placeholder="e.g. www.johnsmith.com..."
           handleOnChange={handleOnChange}
         />
         <InputField
           type="text"
-          name="website"
-          label="Website"
-          placeholder="e.g. www.johnsmith.com..."
+          name="location"
+          label="Location"
+          placeholder="e.g. London, Remote..."
           handleOnChange={handleOnChange}
         />
       </div>

@@ -8,12 +8,14 @@ function App() {
   const [data, setData] = useState({
     contactInfo: "",
     shortBio: "",
+    skills: [],
   });
 
   return (
     <div className="App">
       <InputArea updateState={setData} />
       <Preview data={data} />
+      <p>{console.log(data)}</p>
     </div>
   );
 }

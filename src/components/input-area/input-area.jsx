@@ -1,5 +1,6 @@
 import React from "react";
 import ContactInfo from "./contact-info";
+import Skills from "./skills";
 import "./input-area.css";
 
 function InputShortBio(props) {
@@ -27,6 +28,7 @@ export default function inputArea(props) {
     <div className="input-area">
       <ContactInfo updateState={props.updateState} />
       <InputShortBio updateState={props.updateState} />
+      <Skills updateState={props.updateState} />
     </div>
   );
 }
