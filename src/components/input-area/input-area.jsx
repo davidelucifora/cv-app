@@ -1,6 +1,8 @@
 import React from "react";
 import ContactInfo from "./contact-info";
 import Skills from "./skills";
+import Experience from "./experience";
+import { inputFieldsData } from "./data";
 import "./input-area.css";
 
 function InputShortBio(props) {
@@ -29,6 +31,28 @@ export default function inputArea(props) {
       <ContactInfo updateState={props.updateState} />
       <InputShortBio updateState={props.updateState} />
       <Skills updateState={props.updateState} />
+      <Experience
+        updateState={props.updateState}
+        mode="experience"
+        inputFieldsData={inputFieldsData.experience}
+      />
+      <Experience
+        updateState={props.updateState}
+        mode="education"
+        inputFieldsData={inputFieldsData.education}
+      />
+      {/* <Experience
+        updateState={props.updateState}
+        inputFieldsData={inputFieldsData.experience}
+        mode={"experience"}
+        title="Experience"
+      />
+      <Experience
+        updateState={props.updateState}
+        inputFieldsData={inputFieldsData.education}
+        mode={"education"}
+        title="Education"
+      /> */}
     </div>
   );
 }

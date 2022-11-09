@@ -23,8 +23,8 @@ function Header({ data }) {
         </p>
         <p className="contact-info-lines">
           <a href={data.contactInfo.website}>{data.contactInfo.website}</a>
-          <p className="contact-info-lines">{data.contactInfo.location}</p>
         </p>
+        <p className="contact-info-lines">{data.contactInfo.location}</p>
       </div>
     </div>
   );
@@ -45,8 +45,8 @@ function Skills(props) {
     if (skill.skillName || skill.skillLevel)
       return (
         <li classList="preview-skill-row">
-          <span classList="preview-skill-name">{skill.skillName}</span>
-          <span classList="preview-skill-value">{skill.skillLevel}</span>
+          <span className="preview-skill-name">{skill.skillName}</span>
+          <span className="preview-skill-value">{skill.skillLevel}</span>
         </li>
       );
   });

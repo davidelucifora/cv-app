@@ -119,6 +119,10 @@
   padding: 0.2rem 0;
   border-bottom: 1px solid black;
   display: flex;
-  width: 90%;
-  gap: 1rem;
+  justify-content: space-between;
+}
+
+.preview-skill-value {
+  color: var(--primary-orange);
+  font-weight: 600;
 }

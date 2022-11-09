@@ -11,5 +11,8 @@ export default (function helpers() {
         .substring(1, 8)
     );
   };
-  return { unid };
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+  return { unid, capitalize };
 })();

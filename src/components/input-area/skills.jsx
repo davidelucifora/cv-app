@@ -64,7 +64,7 @@ export default function Skills(props) {
     }));
   }, [allSkills]);
 
-  /* Clicking on Add Skill will add a empty skill with a random */
+  /* Clicking on Add Skill will add a empty skill with a random id */
   function handleAddSkill(e) {
     e.preventDefault();
     setAllSkills((prevArray) => [...prevArray, { id: helpers.unid() }]);
@@ -80,7 +80,7 @@ export default function Skills(props) {
   ));
   return (
     <div className="input-skills">
-      <h3>Skills</h3>
+      <h3 className="input-area-heading">Skills</h3>
       {listAllSkills}
       <button
         className="secondary-btn btn"

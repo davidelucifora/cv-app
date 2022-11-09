@@ -9,6 +9,8 @@ function App() {
     contactInfo: "",
     shortBio: "",
     skills: [],
+    experience: [],
+    education: [],
   });
 
   return (
