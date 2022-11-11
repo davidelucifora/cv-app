@@ -17,7 +17,6 @@ function App() {
     <div className="App">
       <InputArea updateState={setData} />
       <Preview data={data} />
-      <p>{console.log(data)}</p>
     </div>
   );
 }

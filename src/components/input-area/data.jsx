@@ -21,16 +21,20 @@ export const inputFieldsData = {
       type: "text",
     },
   },
+  /** NOTE: Degree has jobTitle as name and School has company as name,
+   * The reason is this way the Experience component can be reused as
+   * Education component also in the Preview.jsx
+   */
   education: {
     school: {
       label: "School",
-      name: "school",
+      name: "company",
       placeholder: "E.g. MIT...",
       type: "text",
     },
     degree: {
       label: "Degree",
-      name: "degree",
+      name: "jobTitle",
       placeholder: "e.g. Computer Science...",
       type: "text",
     },

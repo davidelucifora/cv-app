@@ -58,6 +58,31 @@ function Skills(props) {
     </div>
   );
 }
+
+/** Display Experiences */
+function Experience(props) {
+  const listXP = props.data.map((xp) => {
+    return (
+      <div className="xp-block">
+        <div className="xp-flex-row">
+          <h5 className="xp-title">{xp.jobTitle}</h5>
+        </div>
+
+        <p>{xp.company}</p>
+        <p className="preview-xp-time">
+          {xp.startDate} - {xp.endDate}
+        </p>
+        <p className="preview-xp-time">{xp.location}</p>
+      </div>
+    );
+  });
+  return (
+    <div className="preview-experience">
+      <h3>{props.type}</h3>
+      {listXP}
+    </div>
+  );
+}
 export default function Preview(props) {
   const data = props.data;
   return (
@@ -68,6 +93,12 @@ export default function Preview(props) {
           <ShortBio bio={data.shortBio} />
           {props.data.skills.length > 0 && <Skills data={data.skills} />}
         </div>
+        {props.data.experience.length > 0 && (
+          <Experience data={data.experience} type="Experience" />
+        )}
+        {props.data.experience.length > 0 && (
+          <Experience data={data.education} type="Education" />
+        )}
       </div>
     </div>
   );

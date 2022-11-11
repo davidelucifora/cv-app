@@ -44,7 +44,8 @@ function InputFields(props) {
   /**List fields, period picker and delete btn */
   return (
     <div className="experience-input-fields">
-      {listFields} <PeriodPicker />
+      {listFields}
+      <PeriodPicker id={props.id} updateState={props.updateState} />
       <button className="del-btn" onClick={handleDeleteXp}>
         Delete {helpers.capitalize(props.mode)}
       </button>
@@ -55,9 +56,7 @@ function InputFields(props) {
 /** Reusable component for Experience and Education */
 export default function Experience(props) {
   /** Store all Experiences in state array */
-  const [allExperiences, setAllExperiences] = useState([
-    { id: helpers.unid() },
-  ]);
+  const [allExperiences, setAllExperiences] = useState([]);
 
   // Update App state (data.experience or data.education) when XP Array changes
   useEffect(() => {

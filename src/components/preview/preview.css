@@ -126,3 +126,41 @@
   color: var(--primary-orange);
   font-weight: 600;
 }
+
+/*Experience Preview Area*/
+
+.preview-experience {
+  text-align: left;
+  display: flex;
+  flex-flow: column;
+  color: #242424;
+  margin-left: 1rem;
+}
+
+.preview-experience h3 {
+  margin-bottom: 0.4rem;
+}
+
+.preview-experience p {
+  margin: 0;
+  line-height: 1rem;
+}
+
+.preview-xp-time {
+  color: #242424;
+  font-size: 0.6rem;
+}
+.xp-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.xp-flex-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.xp-block {
+  margin-bottom: 1rem;
+}
