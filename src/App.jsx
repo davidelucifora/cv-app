@@ -1,8 +1,8 @@
 import { useState } from "react";
-import helpers from "./components/helpers";
 import "./App.css";
 import InputArea from "./components/input-area/input-area";
 import Preview from "./components/preview/preview";
+import Login from "./components/Login";
 
 function App() {
   const [data, setData] = useState({
@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <Login />
       <InputArea updateState={setData} />
       <Preview data={data} />
     </div>
