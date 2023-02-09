@@ -20,9 +20,29 @@ h6 {
 
 .App {
   display: flex;
+  flex-flow: column;
+}
+
+.flex {
+  display: flex;
   margin: 0;
   padding: 0;
   height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  height: 2rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #f2614a;
+  align-items: center;
+  gap: 2rem;
+}
+.logged-in-btns {
+  display: flex;
+  gap: 2rem;
 }
 /* Split two areas in half */
 .input-area,
