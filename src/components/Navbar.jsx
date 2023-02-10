@@ -1,23 +1,24 @@
 import React from "react";
-import { useState } from "react";
-import { auth, db } from "./../utils/firebase";
+import { auth } from "./../utils/firebase";
 import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { useEffect } from "react";
 
 export default function Navbar(props) {
   const provider = new GoogleAuthProvider();
-  const [user, setUser] = useState({});
 
   // Watch if user is signed in or out
-  onAuthStateChanged(auth, (user) => {
-    if (user) props.setUser(user);
-    else props.setUser({});
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        props.setUser(user);
+      } else props.setUser({});
+    });
+  }, []);
 
   function handleLogin() {
     signInWithPopup(auth, provider)
