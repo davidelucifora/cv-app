@@ -20,6 +20,7 @@ export default function ContactInfo(props) {
           name="fullName"
           label="Full Name"
           placeholder="e.g. John Smith..."
+          value={props.data.fullName}
           handleOnChange={handleOnChange}
         />
         <InputField
@@ -27,6 +28,7 @@ export default function ContactInfo(props) {
           name="jobTitle"
           label="Job Title"
           placeholder="e.g. Astronaut..."
+          value={props.data.jobTitle}
           handleOnChange={handleOnChange}
         />
       </div>
@@ -36,6 +38,7 @@ export default function ContactInfo(props) {
         label="Your email"
         placeholder="johnsmith@protonmail.com..."
         handleOnChange={handleOnChange}
+        value={props.data.emailAddress}
       />
 
       <div className="form-group-row">
@@ -45,6 +48,7 @@ export default function ContactInfo(props) {
           label="Phone Number"
           placeholder="e.g. +44 7000000..."
           handleOnChange={handleOnChange}
+          value={props.data.phoneNumber}
         />
         <InputField
           type="text"
@@ -52,6 +56,7 @@ export default function ContactInfo(props) {
           label="LinkedIn Username"
           placeholder="e.g. johnsmith"
           handleOnChange={handleOnChange}
+          value={props.data.linkedin}
         />
       </div>
 
@@ -62,6 +67,7 @@ export default function ContactInfo(props) {
           label="Website"
           placeholder="e.g. www.johnsmith.com..."
           handleOnChange={handleOnChange}
+          value={props.data.website}
         />
         <InputField
           type="text"
@@ -69,6 +75,7 @@ export default function ContactInfo(props) {
           label="Location"
           placeholder="e.g. London, Remote..."
           handleOnChange={handleOnChange}
+          value={props.data.location}
         />
       </div>
     </div>

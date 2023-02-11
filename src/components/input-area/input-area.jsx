@@ -25,34 +25,24 @@ function InputShortBio(props) {
     </div>
   );
 }
-export default function inputArea(props) {
+export default function inputArea({ data, updateState }) {
   return (
     <div className="input-area">
-      <ContactInfo updateState={props.updateState} />
-      <InputShortBio updateState={props.updateState} />
-      <Skills updateState={props.updateState} />
+      <ContactInfo updateState={updateState} data={data.contactInfo} />
+      <InputShortBio updateState={updateState} data={data.shortBio} />
+      <Skills updateState={updateState} data={data.skills} />
       <Experience
-        updateState={props.updateState}
+        updateState={updateState}
         mode="experience"
         inputFieldsData={inputFieldsData.experience}
+        data={data.experience}
       />
       <Experience
-        updateState={props.updateState}
+        updateState={updateState}
         mode="education"
         inputFieldsData={inputFieldsData.education}
+        data={data.education}
       />
-      {/* <Experience
-        updateState={props.updateState}
-        inputFieldsData={inputFieldsData.experience}
-        mode={"experience"}
-        title="Experience"
-      />
-      <Experience
-        updateState={props.updateState}
-        inputFieldsData={inputFieldsData.education}
-        mode={"education"}
-        title="Education"
-      /> */}
     </div>
   );
 }

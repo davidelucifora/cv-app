@@ -8,7 +8,6 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 
 function App() {
   const [user, setUser] = useState({});
-
   const [data, setData] = useState({
     contactInfo: "",
     shortBio: "",
@@ -25,11 +24,17 @@ function App() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) setData(docSnap.data());
-        else console.log("no data");
+        else
+          setData({
+            contactInfo: "",
+            shortBio: "",
+            skills: [],
+            experience: [],
+            education: [],
+          });
       }
     };
     fetchData();
-    console.log(data);
   }, [user]);
 
   function handleSaveData() {
@@ -40,7 +45,7 @@ function App() {
     <div className="App">
       <Navbar setUser={setUser} saveData={handleSaveData} user={user} />
       <div className="flex">
-        <InputArea updateState={setData} />
+        <InputArea updateState={setData} data={data} />
         <Preview data={data} />
         <p>{console.log("render")}</p>
       </div>
