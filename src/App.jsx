@@ -37,8 +37,15 @@ function App() {
     fetchData();
   }, [user]);
 
-  function handleSaveData() {
-    setDoc(doc(db, "cvs", user.uid), data);
+  async function handleSaveData(e) {
+    await setDoc(doc(db, "cvs", user.uid), data).then(showDataIsSaved());
+
+    function showDataIsSaved() {
+      e.target.innerText = "Success!";
+      setTimeout(() => {
+        e.target.innerText = "Save Progress";
+      }, 500);
+    }
   }
 
   return (

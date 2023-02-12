@@ -73,6 +73,7 @@ textarea::placeholder {
   display: flex;
   flex-flow: column;
   border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 #add-skill-btn {

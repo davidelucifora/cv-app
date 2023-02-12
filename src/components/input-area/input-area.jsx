@@ -19,6 +19,7 @@ function InputShortBio(props) {
       <textarea
         name="shortBio"
         label="Something about yourself"
+        value={props.data}
         placeholder="E.g. After graduating I took 2 years off travelling and teaching myself coding and data science and started my journey before working at company X, where I quickly got promoted..."
         onChange={handleOnChange}
       ></textarea>
