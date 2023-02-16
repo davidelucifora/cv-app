@@ -24,15 +24,14 @@ function App() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) setData(docSnap.data());
-        else
-          setData({
-            contactInfo: "",
-            shortBio: "",
-            skills: [],
-            experience: [],
-            education: [],
-          });
-      }
+      } else
+        setData({
+          contactInfo: "",
+          shortBio: "",
+          skills: [],
+          experience: [],
+          education: [],
+        });
     };
     fetchData();
   }, [user]);

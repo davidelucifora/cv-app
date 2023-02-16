@@ -8,18 +8,22 @@ import { useEffect } from "react";
 /** Lists input fields and delete btn for each experience in state */
 function InputFields(props) {
   /**To list input fields go through props.data */
-  const listFields = Object.values(props.data).map((field) => {
-    return (
-      /**... An Input Field with its respective data */
-      <InputField
-        type={field.type}
-        name={field.name}
-        key={field.name}
-        label={field.label}
-        placeholder={field.placeholder}
-        handleOnChange={handleOnChange}
-      />
-    );
+  const listFields = props.data.map((xp) => {
+    return Object.values(props.inputFieldsData).map((field) => {
+      const fieldName = field.name;
+      return (
+        /**... An Input Field with its respective data */
+        <InputField
+          type={field.type}
+          name={field.name}
+          key={field.name}
+          label={field.label}
+          placeholder={field.placeholder}
+          handleOnChange={handleOnChange}
+          value={xp[fieldName]}
+        />
+      );
+    });
   });
   /** Update experience in the array on change */
   function handleOnChange(e) {
@@ -49,6 +53,7 @@ function InputFields(props) {
       <button className="del-btn" onClick={handleDeleteXp}>
         Delete {helpers.capitalize(props.mode)}
       </button>
+      <p>{console.log(props.data, "XP")}</p>
     </div>
   );
 }
@@ -56,7 +61,7 @@ function InputFields(props) {
 /** Reusable component for Experience and Education */
 export default function Experience(props) {
   /** Store all Experiences in state array */
-  const [allExperiences, setAllExperiences] = useState([]);
+  const [allExperiences, setAllExperiences] = useState(props.data);
 
   // Update App state (data.experience or data.education) when XP Array changes
   useEffect(() => {
@@ -74,14 +79,15 @@ export default function Experience(props) {
     ]);
   }
   /** For Each xp in the array list editable input fields */
-  const listXp = allExperiences.map((xp) => {
+  const listXp = props.data.map((xp) => {
     return (
       <InputFields
-        data={props.inputFieldsData}
+        inputFieldsData={props.inputFieldsData}
         mode={props.mode}
         id={xp.id}
         key={xp.id}
         updateState={setAllExperiences}
+        data={props.data}
       />
     );
   });
