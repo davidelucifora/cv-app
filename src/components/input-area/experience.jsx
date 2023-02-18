@@ -8,23 +8,21 @@ import { useEffect } from "react";
 /** Lists input fields and delete btn for each experience in state */
 function InputFields(props) {
   /**To list input fields go through props.data */
-  const listFields = props.data.map((xp) => {
-    return Object.values(props.inputFieldsData).map((field) => {
-      const fieldName = field.name;
-      return (
-        /**... An Input Field with its respective data */
-        <InputField
-          type={field.type}
-          name={field.name}
-          key={field.name}
-          label={field.label}
-          placeholder={field.placeholder}
-          handleOnChange={handleOnChange}
-          value={xp[fieldName]}
-        />
-      );
-    });
+  const listFields = Object.values(props.inputFieldsData).map((field) => {
+    return (
+      /**... An Input Field with its respective data */
+      <InputField
+        type={field.type}
+        name={field.name}
+        key={field.name}
+        label={field.label}
+        placeholder={field.placeholder}
+        handleOnChange={handleOnChange}
+        value={props.xp[field.name]}
+      />
+    );
   });
+
   /** Update experience in the array on change */
   function handleOnChange(e) {
     const { name, value } = e.target;
@@ -65,6 +63,10 @@ export default function Experience(props) {
 
   // Update App state (data.experience or data.education) when XP Array changes
   useEffect(() => {
+    setAllExperiences(props.data);
+  }, [props.data]);
+
+  useEffect(() => {
     props.updateState((prevState) => ({
       ...prevState,
       [props.mode]: allExperiences,
@@ -79,7 +81,7 @@ export default function Experience(props) {
     ]);
   }
   /** For Each xp in the array list editable input fields */
-  const listXp = props.data.map((xp) => {
+  const listXp = allExperiences.map((xp) => {
     return (
       <InputFields
         inputFieldsData={props.inputFieldsData}
@@ -87,18 +89,21 @@ export default function Experience(props) {
         id={xp.id}
         key={xp.id}
         updateState={setAllExperiences}
-        data={props.data}
+        xp={xp}
       />
     );
   });
 
   return (
     <div>
+      <h4>{props.mode}</h4>
+
       {listXp}
       <button className="secondary-btn btn" onClick={handleAddXp}>
         {/** Shows Add Experience or add Education (capitalizes props.mode) */}
         Add {helpers.capitalize(props.mode)}
       </button>
+      <p>{console.log(props.data, "ha")}</p>
     </div>
   );
 }
