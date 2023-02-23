@@ -37,6 +37,16 @@ function InputFields(props) {
       })
     );
   }
+  /**
+   * Use Typescript.
+   *
+   * React Docs:
+   * useContext refactor now.
+   * useReducer
+   *
+   * Separate UI and biz logic
+   *
+   */
   /** Delete Experience */
   function handleDeleteXp() {
     props.updateState((prevArray) =>
@@ -62,9 +72,9 @@ export default function Experience(props) {
   const [allExperiences, setAllExperiences] = useState(props.data);
 
   // Update App state (data.experience or data.education) when XP Array changes
-  useEffect(() => {
-    setAllExperiences(props.data);
-  }, [props.data]);
+  // useEffect(() => {
+  //   setAllExperiences(props.data);
+  // }, [props.data]);
 
   useEffect(() => {
     props.updateState((prevState) => ({

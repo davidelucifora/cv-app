@@ -9,7 +9,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 function App() {
   const [user, setUser] = useState({});
   const [data, setData] = useState({
-    contactInfo: "",
+    contactInfo: {},
     shortBio: "",
     skills: [],
     experience: [],

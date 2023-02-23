@@ -3,6 +3,7 @@ import ContactInfo from "./contact-info";
 import Skills from "./skills";
 import Experience from "./experience";
 import { inputFieldsData } from "./data";
+import helpers from "./../helpers";
 import "./input-area.css";
 
 function InputShortBio(props) {
