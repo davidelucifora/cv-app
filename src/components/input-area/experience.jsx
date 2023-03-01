@@ -37,17 +37,7 @@ function InputFields(props) {
       })
     );
   }
-  /**
-   * Use Typescript.
-   *
-   * React Docs:
-   * useContext refactor now.
-   * useReducer
-   *
-   * Separate UI and biz logic
-   *
-   */
-  /** Delete Experience */
+
   function handleDeleteXp() {
     props.updateState((prevArray) =>
       prevArray.filter((xp) => props.id != xp.id)
@@ -61,7 +51,6 @@ function InputFields(props) {
       <button className="del-btn" onClick={handleDeleteXp}>
         Delete {helpers.capitalize(props.mode)}
       </button>
-      <p>{console.log(props.data, "XP")}</p>
     </div>
   );
 }
@@ -71,17 +60,16 @@ export default function Experience(props) {
   /** Store all Experiences in state array */
   const [allExperiences, setAllExperiences] = useState(props.data);
 
-  // Update App state (data.experience or data.education) when XP Array changes
-  // useEffect(() => {
-  //   setAllExperiences(props.data);
-  // }, [props.data]);
-
   useEffect(() => {
     props.updateState((prevState) => ({
       ...prevState,
       [props.mode]: allExperiences,
     }));
   }, [allExperiences]);
+
+  useEffect(() => {
+    setAllExperiences(props.data);
+  }, [props.data]);
 
   // Add new XP with random ID when clicking on Add XP
   function handleAddXp() {

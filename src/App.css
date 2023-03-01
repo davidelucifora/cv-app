@@ -47,7 +47,6 @@ h6 {
 /* Split two areas in half */
 .input-area,
 .preview-area {
-  flex: 0 0 50%;
   padding: 1rem 3rem 1rem 2rem;
 }
 

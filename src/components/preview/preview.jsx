@@ -1,115 +1,21 @@
 import React from "react";
-import helpers from "./../helpers";
-import {
-  PDFViewer,
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-} from "@react-pdf/renderer";
 import "./preview.css";
+import { PDFViewer, StyleSheet } from "@react-pdf/renderer";
+import CVPdf from "./../PDF";
 
-// Create styles for PDF Viewer
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: "column",
-    backgroundColor: "#E4E4E4",
-    width: "100%",
-    fontSize: "12px",
-  },
-  flex: { display: "flex", flexDirection: "row" },
-  heading: { fontSize: "18px", fontWeight: "600" },
-  section: { margin: "20px" },
-
-  // Header Styles
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: "10%",
-    alignItems: "center",
-    backgroundColor: "#f2614a",
-    width: "100%",
-    color: "white",
-    textAlign: "left",
-    fontSize: "12px",
-    padding: "12px",
-    // Styles for Name section of Header
-    name: {
-      fontSize: "18px",
-    },
-    jobTitle: {
-      fontSize: "14px",
-    },
-  },
-  viewer: {
-    width: window.innerWidth, //the pdf viewer will take up all of the width and height
-    height: window.innerHeight,
-  },
-  skillList: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    flexWrap: "wrap",
-  },
-  skills: {
-    width: "auto",
-    name: { marginRight: "10px", color: "#f2614a", fontWeight: "bold" },
-  },
-});
-
-const CVPdf = ({ data }) => {
-  return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        /** Header */
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.header.name}>{data.contactInfo.fullName}</Text>
-            <Text style={styles.header.jobTitle}>
-              {data.contactInfo.jobTitle}
-            </Text>
-          </View>
-          <View>
-            <Text>{data.contactInfo.location}</Text>
-            <Text>{data.contactInfo.emailAddress}</Text>
-            <Text>{data.contactInfo.phoneNumber}</Text>
-            <Text>/in/{data.contactInfo.linkedin}</Text>
-          </View>
-        </View>
-        <View>
-          {data.shortBio}
-          <View style={[styles.section, styles.shortBio]}>
-            <Text style={styles.heading}>Bio:</Text>
-            <Text>{data.shortBio}</Text>
-          </View>
-          <View style={styles.section}>
-            <View style={[styles.skillList, styles.section]}>
-              <Text style={styles.heading}>Skills:</Text>
-              {data.skills.map((skill) => {
-                return (
-                  <View key={helpers.unid()}>
-                    <View style={styles.skills}>
-                      <Text style={styles.skills.name}>{skill.skillName}</Text>
-                      <Text>{skill.skillLevel}</Text>
-                    </View>
-                  </View>
-                );
-              })}
-            </View>
-          </View>
-        </View>
-      </Page>
-    </Document>
-  );
-};
 export default function Preview(props) {
+  const styles = StyleSheet.create({
+    viewer: {
+      width: window.innerWidth, //the pdf viewer will take up all of the width and height
+      height: window.innerHeight,
+    },
+  });
   return (
-    <PDFViewer style={styles.viewer} showToolbar={false}>
-      <CVPdf data={props.data} />
-    </PDFViewer>
+    <div className="preview-area">
+      <PDFViewer showToolbar={false} style={styles.viewer}>
+        <CVPdf data={props.data} />
+      </PDFViewer>
+    </div>
   );
 }
 
